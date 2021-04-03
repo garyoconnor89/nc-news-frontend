@@ -1,0 +1,42 @@
+.App {
+  text-align: center;
+}
+
+.main-app {
+  background: linear-gradient(rgb(187, 221, 238, 0.4), rgba(187, 221, 238, 0.4)),
+    url("./images/pexels-brotin-biswas-518543.jpg") center/cover no-repeat;
+  width: 100%;
+  min-height: 120vh;
+}
+
+.nav-container {
+  width: 100%;
+  background-color: rgb(18, 39, 41);
+  color: white;
+  display: flex;
+  border: 3px solid rgb(187, 221, 238);
+  border-radius: 0px 0px 15px 15px;
+}
+
+.nav-logo {
+  background-color: rgb(187, 221, 238);
+  height: 2rem;
+  width: 2rem;
+  border-radius: 10px;
+  padding: 0.2rem;
+  display: inline-block;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+}
+
+/* .background-img {
+  width: 100%;
+  min-height: 120vh;
+  opacity: 0.9;
+  filter: grayscale(2) contrast(1) saturate(5) brightness(0.5);
+} */
