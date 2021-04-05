@@ -30,7 +30,7 @@
 }
 
 .nav-logo {
-  background-color: rgb(186, 24, 27);
+  background-color: rgb(72, 202, 228);
   height: 2rem;
   width: 2rem;
   border-radius: 10px;
@@ -63,18 +63,15 @@
 }
 
 .homepage-title {
-  color: rgb(186, 24, 27);
-
-  width: 70%;
+  color: rgb(72, 202, 228);
   margin: auto;
   border-radius: 15px;
-  /* border: 3px solid rgb(186, 24, 27); */
   font-size: 44px;
   font-weight: 1000;
 }
 
 .homepage-subtitle {
-  color: rgb(186, 24, 27);
+  color: rgb(245, 243, 244);
 }
 
 .homepage-desc {
@@ -104,7 +101,7 @@
 .homepage-article-title {
   justify-self: start;
   grid-area: title;
-  color: rgb(186, 24, 27);
+  color: rgb(72, 202, 228);
   align-self: center;
   font-size: 14px;
 }
@@ -113,7 +110,7 @@
   justify-self: end;
   align-self: center;
   grid-area: topic;
-  color: rgb(186, 24, 27);
+  color: rgb(72, 202, 228);
   margin: 10px;
   font-size: 12px;
 }
@@ -130,7 +127,7 @@
 .homepage-article-author {
   justify-self: start;
   grid-area: author;
-  color: rgb(186, 24, 27);
+  color: rgb(72, 202, 228);
   align-self: center;
   font-size: 12px;
 }
@@ -138,17 +135,85 @@
 .homepage-article-posted {
   justify-self: end;
   grid-area: posted;
-  color: rgb(186, 24, 27);
+  color: rgb(72, 202, 228);
   align-self: center;
   margin: 10px;
   font-size: 12px;
 }
 /* HOMEPAGE END */
 
+/* TOPICS START */
+
+.topic {
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: rgb(11, 9, 10);
+  border-radius: 30px;
+}
+
+.topics-title {
+  font-size: 40px;
+  color: rgb(72, 202, 228);
+}
+
+.topic-title {
+  color: rgb(72, 202, 228);
+  margin: auto;
+  border-radius: 15px;
+  font-size: 30px;
+  font-weight: 1000;
+}
+
+.topic-article {
+  color: rgb(11, 9, 10);
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 1000;
+  background-color: rgb(245, 243, 244);
+  list-style-type: none;
+  padding: 2px;
+  margin: 2px;
+}
+
+.topic-list {
+  text-align: center;
+  list-style: inside;
+  padding: 20px;
+  margin: 5px;
+}
+
+/* TOPICS END */
+
 /* ARTICLES START */
 
 .articles-title {
   font-size: 40px;
-  color: rgb(186, 24, 27);
+  color: rgb(72, 202, 228);
 }
 /* ARTICLES END */
+
+/* ACCOUNT START */
+
+.account-title {
+  font-size: 40px;
+  color: rgb(72, 202, 228);
+}
+
+.account-container {
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: rgb(11, 9, 10);
+  border-radius: 30px;
+}
+
+.account-info {
+  color: rgb(72, 202, 228);
+  margin: auto;
+  border-radius: 15px;
+  font-size: 25px;
+  font-weight: 1000;
+}
+
+/* ACCOUNT END */

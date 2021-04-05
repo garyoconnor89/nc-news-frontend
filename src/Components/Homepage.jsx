@@ -5,7 +5,7 @@ function Homepage(props) {
     <section className="homepage-section">
       <br></br>
       <header className="homepage-header">
-        <h1 className="homepage-title">NC-News</h1>
+        <h1 className="homepage-title">NC-NEWS</h1>
         <h2 className="homepage-subtitle">Where News Happens</h2>
         <p className="homepage-desc">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum alias
