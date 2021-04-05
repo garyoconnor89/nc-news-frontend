@@ -1,7 +1,10 @@
 .main-app {
   text-align: center;
 
-  background: linear-gradient(rgb(187, 221, 238, 0.4), rgba(187, 221, 238, 0.4)),
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.1),
+      rgba(254, 254, 254, 0.1)
+    ),
     url("./images/pexels-brotin-biswas-518543.jpg") center/cover no-repeat;
   width: 100%;
   min-height: 120vh;
@@ -12,27 +15,39 @@
 
 .nav-container {
   width: 100%;
-  background-color: rgb(8, 28, 21);
-  color: white;
+  height: 15%;
+  background-color: rgb(11, 9, 10);
+  color: rgb(245, 243, 244);
   display: flex;
-  border: 3px solid rgb(149, 213, 178);
-  border-radius: 0px 0px 15px 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  box-shadow: rgb(245, 243, 244);
+  z-index: 2;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-logo {
-  background-color: rgb(149, 213, 178);
+  background-color: rgb(186, 24, 27);
   height: 2rem;
   width: 2rem;
   border-radius: 10px;
   padding: 0.2rem;
   display: inline-block;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 
 .nav-link {
   text-decoration: none;
-  color: white;
+  color: rgb(245, 243, 244);
+  font-size: 0px;
+}
+
+.nav-title {
+  padding: 3px;
 }
 
 /* NAV END */
@@ -40,70 +55,100 @@
 /* HOMEPAGE START */
 
 .homepage-header {
-  background-color: rgb(183, 228, 199);
-  padding: 10px;
-  margin: 10px;
-  border-radius: 15px;
+  margin-top: 102px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: rgb(11, 9, 10);
+  border-radius: 30px;
 }
 
 .homepage-title {
-  color: rgb(8, 28, 21);
-  background-color: rgb(116, 198, 157);
-  padding: 5px;
-  width: 30%;
+  color: rgb(186, 24, 27);
+
+  width: 70%;
   margin: auto;
   border-radius: 15px;
+  /* border: 3px solid rgb(186, 24, 27); */
+  font-size: 44px;
+  font-weight: 1000;
 }
 
 .homepage-subtitle {
-  color: rgb(8, 28, 21);
-  /* background-color: rgb(149, 213, 178); */
+  color: rgb(186, 24, 27);
 }
 
 .homepage-desc {
-  color: rgb(8, 28, 21);
-  background-color: rgb(216, 243, 220);
-  padding: 5px;
+  color: rgb(11, 9, 10);
+  background-color: rgb(1245, 243, 244);
+  padding: 10px;
   border-radius: 15px;
+  font-size: 14px;
 }
 
 .homepage-article {
-  background-color: rgb(216, 243, 220);
-  padding: 10px;
-  margin: 10px;
+  background-color: rgb(11, 9, 10);
+  padding: 5px;
   border-radius: 15px;
   display: grid;
   grid-template-columns: 150px 150px;
-  grid-template-rows: 40px 180px 40px;
+  grid-template-rows: 30px 130px 30px;
   grid-template-areas:
     "title topic"
     "body body"
     "author posted";
+  margin: 20px;
+  align-items: center;
+  justify-content: center;
 }
 
 .homepage-article-title {
   justify-self: start;
   grid-area: title;
+  color: rgb(186, 24, 27);
+  align-self: center;
+  font-size: 14px;
 }
 
 .homepage-article-topic {
   justify-self: end;
+  align-self: center;
   grid-area: topic;
+  color: rgb(186, 24, 27);
+  margin: 10px;
+  font-size: 12px;
 }
 
 .homepage-article-body {
   grid-area: body;
-  background-color: rgb(183, 228, 199);
+  background-color: rgb(245, 243, 244);
   border-radius: 15px;
+  font-size: 12px;
+  padding: 5px;
+  align-self: center;
 }
 
 .homepage-article-author {
   justify-self: start;
   grid-area: author;
+  color: rgb(186, 24, 27);
+  align-self: center;
+  font-size: 12px;
 }
 
 .homepage-article-posted {
   justify-self: end;
   grid-area: posted;
+  color: rgb(186, 24, 27);
+  align-self: center;
+  margin: 10px;
+  font-size: 12px;
 }
 /* HOMEPAGE END */
+
+/* ARTICLES START */
+
+.articles-title {
+  font-size: 40px;
+  color: rgb(186, 24, 27);
+}
+/* ARTICLES END */

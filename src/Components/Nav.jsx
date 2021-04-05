@@ -34,7 +34,7 @@ function Nav(props) {
           Articles
         </h3>
       </Link>
-      <h1>NC-News</h1>
+      <h1 className="nav-title"> NC-NEWS </h1>
       <Link to="/login">
         <h3 className="nav-link">
           <img
