@@ -1,7 +1,20 @@
 import React, { Component } from "react";
+import { fetchArticles } from "../api";
 
 class Articles extends Component {
+  state = {
+    articles: [],
+  };
+
+  componentDidMount() {
+    fetchArticles().then((articles) => {
+      this.setState({ articles });
+    });
+  }
+
   render() {
+    const { articles } = this.state;
+
     return (
       <section>
         <br></br>
@@ -36,67 +49,30 @@ class Articles extends Component {
             <option value="order3">order3</option>
             <option value="order4">order4</option>
           </select>
+          {articles.map((article) => {
+            console.log(article);
+            return (
+              <article className="homepage-article">
+                <h3 className="homepage-article-title">{article.title}</h3>
+                <h4 className="homepage-article-topic">{article.topic}</h4>
+                <p className="homepage-article-body">
+                  NEED TO ADD BODY ON BACKEND
+                </p>
+                <h4 className="homepage-article-author">{article.author}</h4>
+                <h5 className="homepage-article-posted">
+                  {article.created_at}
+                </h5>
+              </article>
+            );
+          })}
 
-          <article className="homepage-article">
+          {/* <article className="homepage-article">
             <h3 className="homepage-article-title">Title Example</h3>
             <h4 className="homepage-article-topic">Topic Example</h4>
-            <p className="homepage-article-body">
-              Body Example. Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Nam quam quod in, nostrum sequi ipsa soluta doloribus velit
-              totam itaque nulla et dolorem qui quo iste vero labore similique
-              adipisci!
-            </p>
+            <p className="homepage-article-body">Body Example</p>
             <h4 className="homepage-article-author">Author Example</h4>
             <h5 className="homepage-article-posted">Posted at Example</h5>
-          </article>
-          <article className="homepage-article">
-            <h3 className="homepage-article-title">Title Example</h3>
-            <h4 className="homepage-article-topic">Topic Example</h4>
-            <p className="homepage-article-body">
-              Body Example. Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Nam quam quod in, nostrum sequi ipsa soluta doloribus velit
-              totam itaque nulla et dolorem qui quo iste vero labore similique
-              adipisci!
-            </p>
-            <h4 className="homepage-article-author">Author Example</h4>
-            <h5 className="homepage-article-posted">Posted at Example</h5>
-          </article>
-          <article className="homepage-article">
-            <h3 className="homepage-article-title">Title Example</h3>
-            <h4 className="homepage-article-topic">Topic Example</h4>
-            <p className="homepage-article-body">
-              Body Example. Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Nam quam quod in, nostrum sequi ipsa soluta doloribus velit
-              totam itaque nulla et dolorem qui quo iste vero labore similique
-              adipisci!
-            </p>
-            <h4 className="homepage-article-author">Author Example</h4>
-            <h5 className="homepage-article-posted">Posted at Example</h5>
-          </article>
-          <article className="homepage-article">
-            <h3 className="homepage-article-title">Title Example</h3>
-            <h4 className="homepage-article-topic">Topic Example</h4>
-            <p className="homepage-article-body">
-              Body Example. Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Nam quam quod in, nostrum sequi ipsa soluta doloribus velit
-              totam itaque nulla et dolorem qui quo iste vero labore similique
-              adipisci!
-            </p>
-            <h4 className="homepage-article-author">Author Example</h4>
-            <h5 className="homepage-article-posted">Posted at Example</h5>
-          </article>
-          <article className="homepage-article">
-            <h3 className="homepage-article-title">Title Example</h3>
-            <h4 className="homepage-article-topic">Topic Example</h4>
-            <p className="homepage-article-body">
-              Body Example. Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Nam quam quod in, nostrum sequi ipsa soluta doloribus velit
-              totam itaque nulla et dolorem qui quo iste vero labore similique
-              adipisci!
-            </p>
-            <h4 className="homepage-article-author">Author Example</h4>
-            <h5 className="homepage-article-posted">Posted at Example</h5>
-          </article>
+          </article> */}
         </main>
       </section>
     );

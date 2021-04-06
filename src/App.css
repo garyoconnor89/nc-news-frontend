@@ -84,7 +84,7 @@
 /* HOMEPAGE START */
 
 .homepage-header {
-  margin-top: 102px;
+  margin-top: 112px;
   margin-left: 20px;
   margin-right: 20px;
   background-color: rgb(11, 9, 10);
@@ -117,18 +117,19 @@
   border-radius: 15px;
   display: grid;
   grid-template-columns: 150px 150px;
-  grid-template-rows: 30px 130px 30px;
+  grid-template-rows: 30px 30px 30px 30px;
   grid-template-areas:
-    "title topic"
-    "body body"
-    "author posted";
+    "title title"
+    "topic author"
+    "votes comments"
+    "posted posted";
   margin: 20px;
   align-items: center;
   justify-content: center;
 }
 
 .homepage-article-title {
-  justify-self: start;
+  justify-self: center;
   grid-area: title;
   color: rgb(72, 202, 228);
   align-self: center;
@@ -136,7 +137,7 @@
 }
 
 .homepage-article-topic {
-  justify-self: end;
+  justify-self: center;
   align-self: center;
   grid-area: topic;
   color: rgb(72, 202, 228);
@@ -144,21 +145,28 @@
   font-size: 12px;
 }
 
-.homepage-article-body {
-  grid-area: body;
-  background-color: rgb(245, 243, 244);
-  border-radius: 15px;
-  font-size: 12px;
-  padding: 5px;
-  align-self: center;
-}
-
 .homepage-article-author {
-  justify-self: start;
+  justify-self: center;
   grid-area: author;
   color: rgb(72, 202, 228);
   align-self: center;
   font-size: 12px;
+}
+
+.homepage-article-votes {
+  grid-area: votes;
+  color: rgb(72, 202, 228);
+  align-self: center;
+  font-size: 12px;
+  justify-self: center;
+}
+
+.homepage-article-comments {
+  grid-area: comments;
+  color: rgb(72, 202, 228);
+  align-self: center;
+  font-size: 12px;
+  justify-self: center;
 }
 
 .homepage-article-posted {
@@ -188,34 +196,27 @@
 }
 
 .topics-title {
-  font-size: 40px;
   color: rgb(72, 202, 228);
+  margin: 30px 0px;
+  border-radius: 15px;
+  font-size: 44px;
+  font-weight: 1000;
 }
 
-.topic-title {
+.topic-slug {
   color: rgb(72, 202, 228);
   margin: auto;
   border-radius: 15px;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 1000;
 }
 
-.topic-article {
-  color: rgb(11, 9, 10);
+.topic-desc {
+  color: rgb(72, 202, 228);
+  margin: auto;
   border-radius: 15px;
   font-size: 14px;
   font-weight: 1000;
-  background-color: rgb(245, 243, 244);
-  list-style-type: none;
-  padding: 2px;
-  margin: 2px;
-}
-
-.topic-list {
-  text-align: center;
-  list-style: inside;
-  padding: 20px;
-  margin: 5px;
 }
 
 /* TOPICS END */
@@ -225,6 +226,10 @@
 .articles-title {
   font-size: 40px;
   color: rgb(72, 202, 228);
+}
+
+.homepage-article-body {
+  color: green;
 }
 /* ARTICLES END */
 
