@@ -2,8 +2,8 @@
   text-align: center;
 
   background: linear-gradient(
-      rgba(255, 255, 255, 0.1),
-      rgba(254, 254, 254, 0.1)
+      rgba(255, 255, 255, 0.365),
+      rgba(255, 255, 255, 0.673)
     ),
     url("./images/pexels-brotin-biswas-518543.jpg") center/cover no-repeat;
   width: 100%;
@@ -16,7 +16,7 @@
 .nav-container {
   width: 100%;
   height: 15%;
-  background-color: rgb(11, 9, 10);
+  background-color: rgb(40, 34, 37);
   color: rgb(245, 243, 244);
   display: flex;
   flex-flow: row nowrap;
@@ -87,7 +87,6 @@
   margin-top: 112px;
   margin-left: 20px;
   margin-right: 20px;
-  /* background-color: rgb(11, 9, 10); */
   border-radius: 30px;
   border: 3px rgb(72, 202, 228) solid;
 }
@@ -105,15 +104,12 @@
 }
 
 .homepage-desc {
-  /* color: rgb(11, 9, 10); */
-  background-color: rgb(1245, 243, 244);
   padding: 10px;
-  border-radius: 15px;
   font-size: 14px;
 }
 
 .homepage-article {
-  background-color: rgb(11, 9, 10);
+  /* background-color: rgb(11, 9, 10); */
   padding: 5px;
   border-radius: 15px;
   display: grid;
@@ -127,12 +123,13 @@
   margin: 20px;
   align-items: center;
   justify-content: center;
+  border: 3px rgb(72, 202, 228) solid;
 }
 
 .homepage-article-title {
   justify-self: center;
   grid-area: title;
-  color: rgb(72, 202, 228);
+  color: rgb(40, 34, 37);
   align-self: center;
   font-size: 14px;
 }
@@ -141,7 +138,7 @@
   justify-self: center;
   align-self: center;
   grid-area: topic;
-  color: rgb(72, 202, 228);
+  color: rgb(40, 34, 37);
   margin: 10px;
   font-size: 12px;
 }
@@ -149,14 +146,14 @@
 .homepage-article-author {
   justify-self: center;
   grid-area: author;
-  color: rgb(72, 202, 228);
+  color: rgb(40, 34, 37);
   align-self: center;
   font-size: 12px;
 }
 
 .homepage-article-votes {
   grid-area: votes;
-  color: rgb(72, 202, 228);
+  color: rgb(40, 34, 37);
   align-self: center;
   font-size: 12px;
   justify-self: center;
@@ -164,7 +161,7 @@
 
 .homepage-article-comments {
   grid-area: comments;
-  color: rgb(72, 202, 228);
+  color: rgb(40, 34, 37);
   align-self: center;
   font-size: 12px;
   justify-self: center;
@@ -173,7 +170,7 @@
 .homepage-article-posted {
   justify-self: end;
   grid-area: posted;
-  color: rgb(72, 202, 228);
+  color: rgb(40, 34, 37);
   align-self: center;
   margin: 10px;
   font-size: 12px;
@@ -192,12 +189,11 @@
   margin-top: 10px;
   margin-left: 20px;
   margin-right: 20px;
-  background-color: rgb(11, 9, 10);
   border-radius: 30px;
 }
 
 .topics-title {
-  color: rgb(72, 202, 228);
+  color: rgb(40, 34, 37);
   margin: 30px 0px;
   border-radius: 15px;
   font-size: 44px;
@@ -205,7 +201,7 @@
 }
 
 .topic-slug {
-  color: rgb(72, 202, 228);
+  color: rgb(40, 34, 37);
   margin: auto;
   border-radius: 15px;
   font-size: 20px;
@@ -213,7 +209,7 @@
 }
 
 .topic-desc {
-  color: rgb(72, 202, 228);
+  color: rgb(40, 34, 37);
   margin: auto;
   border-radius: 15px;
   font-size: 14px;
@@ -226,7 +222,7 @@
 
 .articles-title {
   font-size: 40px;
-  color: rgb(72, 202, 228);
+  color: rgb(40, 34, 37);
 }
 
 .homepage-article-body {
@@ -238,19 +234,19 @@
 
 .account-title {
   font-size: 40px;
-  color: rgb(72, 202, 228);
+  color: rgb(40, 34, 37);
 }
 
 .account-container {
   margin-top: 10px;
   margin-left: 20px;
   margin-right: 20px;
-  background-color: rgb(11, 9, 10);
+  background-color: rgb(72, 202, 228);
   border-radius: 30px;
 }
 
 .account-info {
-  color: rgb(72, 202, 228);
+  color: rgb(40, 34, 37);
   margin: auto;
   border-radius: 15px;
   font-size: 25px;

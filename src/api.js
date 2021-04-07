@@ -16,10 +16,15 @@ export const fetchTopics = () => {
   });
 };
 
-export const fetchArticles = () => {
-  return request.get("/articles").then(({ data }) => {
-    return data.articles;
-  });
+export const fetchArticles = (topic, sort_by, order) => {
+  return request
+    .get("/articles", {
+      params: { topic: topic, sort_by: sort_by, order: order },
+    })
+    .then(({ data }) => {
+      console.log("IN THEN");
+      return data.articles;
+    });
 };
 
 export const fetchArticleById = (article_id) => {
@@ -34,4 +39,13 @@ export const fetchCommentsByArticleId = (article_id, article) => {
     articleWithComments.article.comments = data.comments;
     return articleWithComments.article;
   });
+};
+
+export const postComment = (article_id, username, body) => {
+  const comment = { username, body };
+  return request
+    .post(`/articles/${article_id}/comments`, comment)
+    .then((response) => {
+      return response;
+    });
 };

@@ -6,17 +6,18 @@ import { Link } from "@reach/router";
 class Homepage extends Component {
   state = {
     articles: [],
+    isLoading: true,
   };
 
   componentDidMount() {
     fetchTop5Articles().then((articles) => {
-      this.setState({ articles });
+      this.setState({ articles, isLoading: false });
     });
   }
 
   render() {
-    const { articles } = this.state;
-    console.log(articles);
+    const { articles, isLoading } = this.state;
+
     return (
       <section className="homepage-section">
         <header className="homepage-header">
@@ -29,26 +30,30 @@ class Homepage extends Component {
             explicabo repellendus // modi! Dolores, earum!
           </p>
         </header>
-        <main className="homepage-articles">
-          {articles.map((article) => {
-            console.log(article.article_id);
-            return (
-              <article key={article.id} className="homepage-article">
-                <Link to={`/articles/${article.article_id}`}>
-                  <h3 className="homepage-article-title">{article.title}</h3>
-                </Link>
+        {isLoading ? (
+          <h1>Is Loading</h1>
+        ) : (
+          <main className="homepage-articles">
+            {articles.map((article) => {
+              console.log(article.article_id);
+              return (
+                <article key={article.id} className="homepage-article">
+                  <Link to={`/articles/${article.article_id}`}>
+                    <h3 className="homepage-article-title">{article.title}</h3>
+                  </Link>
 
-                <h4 className="homepage-article-topic">{`Topic: ${article.topic}`}</h4>
-                <h4 className="homepage-article-author">{`Author: ${article.author}`}</h4>
-                <h4 className="homepage-article-votes">{`Votes: ${article.votes}`}</h4>
-                <h4 className="homepage-article-comments">{`Comments: ${article.comment_count}`}</h4>
-                <h5 className="homepage-article-posted">
-                  {article.created_at}
-                </h5>
-              </article>
-            );
-          })}
-        </main>
+                  <h4 className="homepage-article-topic">{`Topic: ${article.topic}`}</h4>
+                  <h4 className="homepage-article-author">{`Author: ${article.author}`}</h4>
+                  <h4 className="homepage-article-votes">{`Votes: ${article.votes}`}</h4>
+                  <h4 className="homepage-article-comments">{`Comments: ${article.comment_count}`}</h4>
+                  <h5 className="homepage-article-posted">
+                    {article.created_at}
+                  </h5>
+                </article>
+              );
+            })}
+          </main>
+        )}
       </section>
     );
   }

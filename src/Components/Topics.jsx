@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { fetchTopics, fetchArticlesByTopic } from "../api";
+import { fetchTopics } from "../api";
 
 class Topics extends Component {
   state = {
