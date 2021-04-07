@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { fetchArticles } from "../api";
+import { Link } from "@reach/router";
 
 class Articles extends Component {
   state = {
@@ -53,7 +54,9 @@ class Articles extends Component {
             console.log(article);
             return (
               <article className="homepage-article">
-                <h3 className="homepage-article-title">{article.title}</h3>
+                <Link to={`/articles/${article.article_id}`}>
+                  <h3 className="homepage-article-title">{article.title}</h3>
+                </Link>
                 <h4 className="homepage-article-topic">{article.topic}</h4>
                 <p className="homepage-article-body">
                   NEED TO ADD BODY ON BACKEND

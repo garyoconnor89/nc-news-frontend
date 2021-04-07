@@ -7,6 +7,7 @@ import Articles from "./Components/Articles";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import Account from "./Components/Account";
+import Article from "./Components/Article";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Login path="/login" />
         <Signup path="/signup" />
         <Account path="/account" />
+        <Article path="/articles/:article_id" />
       </Router>
     </main>
   );

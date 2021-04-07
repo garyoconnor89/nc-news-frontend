@@ -17,9 +17,21 @@ export const fetchTopics = () => {
 };
 
 export const fetchArticles = () => {
-  console.log("IN FETCH");
   return request.get("/articles").then(({ data }) => {
-    console.log(data.articles);
     return data.articles;
+  });
+};
+
+export const fetchArticleById = (article_id) => {
+  return request.get(`/articles/${article_id}`).then(({ data }) => {
+    return data.article;
+  });
+};
+
+export const fetchCommentsByArticleId = (article_id, article) => {
+  return request.get(`/articles/${article_id}/comments`).then(({ data }) => {
+    const articleWithComments = { article };
+    articleWithComments.article.comments = data.comments;
+    return articleWithComments.article;
   });
 };

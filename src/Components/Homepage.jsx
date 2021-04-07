@@ -1,6 +1,7 @@
 // import React from "react";
 import React, { Component } from "react";
 import { fetchTop5Articles } from "../api.js";
+import { Link } from "@reach/router";
 
 class Homepage extends Component {
   state = {
@@ -15,6 +16,7 @@ class Homepage extends Component {
 
   render() {
     const { articles } = this.state;
+    console.log(articles);
     return (
       <section className="homepage-section">
         <header className="homepage-header">
@@ -29,9 +31,13 @@ class Homepage extends Component {
         </header>
         <main className="homepage-articles">
           {articles.map((article) => {
+            console.log(article.article_id);
             return (
               <article key={article.id} className="homepage-article">
-                <h3 className="homepage-article-title">{article.title}</h3>
+                <Link to={`/articles/${article.article_id}`}>
+                  <h3 className="homepage-article-title">{article.title}</h3>
+                </Link>
+
                 <h4 className="homepage-article-topic">{`Topic: ${article.topic}`}</h4>
                 <h4 className="homepage-article-author">{`Author: ${article.author}`}</h4>
                 <h4 className="homepage-article-votes">{`Votes: ${article.votes}`}</h4>
