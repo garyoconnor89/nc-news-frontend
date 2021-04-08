@@ -20,8 +20,9 @@ class PostComment extends Component {
     const { article_id } = this.props;
     const { username, body } = this.state;
     postComment(article_id, username, body)
-      .then((res) => {
-        this.setState({ username: "jessjelly", body: "" });
+      .then((comment) => {
+        this.setState({ body: "" });
+        this.props.addPostedComment(comment);
       })
       .catch((err) => {
         this.setState({ err, isLoading: false });
@@ -29,6 +30,7 @@ class PostComment extends Component {
   };
 
   render() {
+    console.log(this.state.body.length);
     const { err } = this.state;
 
     if (err) {
@@ -40,6 +42,7 @@ class PostComment extends Component {
         <label>
           Comment:
           <input
+            value={this.state.body}
             onChange={this.handleChange}
             type="text"
             placeholder="Enter comment here. Be kind."

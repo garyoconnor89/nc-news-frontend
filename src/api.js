@@ -22,7 +22,6 @@ export const fetchArticles = (topic, sort_by, order) => {
       params: { topic: topic, sort_by: sort_by, order: order },
     })
     .then(({ data }) => {
-      console.log("IN THEN");
       return data.articles;
     });
 };
@@ -33,20 +32,26 @@ export const fetchArticleById = (article_id) => {
   });
 };
 
-export const fetchCommentsByArticleId = (article_id, article) => {
+export const fetchCommentsByArticleId = (article_id) => {
   return request.get(`/articles/${article_id}/comments`).then(({ data }) => {
-    const articleWithComments = { article };
-    articleWithComments.article.comments = data.comments;
-    return articleWithComments.article;
+    return data.comments;
   });
 };
+
+// export const fetchCommentsByArticleId = (article_id, article) => {
+//   return request.get(`/articles/${article_id}/comments`).then(({ data }) => {
+//     const articleWithComments = { article };
+//     articleWithComments.article.comments = data.comments;
+//     return articleWithComments.article;
+//   });
+// };
 
 export const postComment = (article_id, username, body) => {
   const comment = { username, body };
   return request
     .post(`/articles/${article_id}/comments`, comment)
-    .then((response) => {
-      console.log(response);
+    .then(({ data }) => {
+      return data;
     });
 };
 

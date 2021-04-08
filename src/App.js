@@ -1,6 +1,6 @@
 import "./App.css";
-import Nav from "./Components/Nav";
 import { Router } from "@reach/router";
+import Nav from "./Components/Nav";
 import Topics from "./Components/Topics";
 import Homepage from "./Components/Homepage";
 import Articles from "./Components/Articles";

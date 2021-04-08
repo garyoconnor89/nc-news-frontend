@@ -11,56 +11,32 @@ import ErrorDisplayer from "../Components/ErrorDisplayer";
 class Article extends Component {
   state = {
     article: {},
+    comments: [],
     isLoading: true,
     err: null,
   };
 
   componentDidMount = () => {
     const { article_id } = this.props;
-
-    fetchArticleById(article_id).then((article) => {
-      fetchCommentsByArticleId(article_id, article)
-        .then((article) => {
-          this.setState({ article, isLoading: false });
-        })
-        .catch((err) => {
-          this.setState({ err, isLoading: false });
-        });
-    });
+    Promise.all([
+      fetchArticleById(article_id),
+      fetchCommentsByArticleId(article_id),
+    ])
+      .then(([article, comments]) => {
+        this.setState({ article, comments, isLoading: false });
+      })
+      .catch((err) => {
+        this.setState({ err, isLoading: false });
+      });
   };
-
-  // componentDidUpdate = (prevProps, prevState) => {
-
-  //   const { article_id } = this.props;
-
-  //   if (this.state.article.comment_count !== prevState.article.comment_count) {
-  //     fetchArticleById(article_id).then((article) => {
-  //       fetchCommentsByArticleId(article_id, article).then((article) => {
-  //         this.setState({ article, isLoading: false });
-  //       });
-  //     });
-  //   }
-
-  //   // if (this.state.article.comment_count > prevState.article.comment_count) {
-
-  //   //   fetchArticleById(article_id).then((article) => {
-  //   //     fetchCommentsByArticleId(article_id, article).then((article) => {
-  //   //       this.setState({ article, isLoading: false });
-  //   //     });
-  //   //   });
-  //   // }
-  // };
 
   deleteCommentClick = (event) => {
     const { value } = event.target;
+    const { article_id } = this.props;
     deleteComment(value)
       .then(() => {
-        const { article_id } = this.props;
-
-        fetchArticleById(article_id).then((article) => {
-          fetchCommentsByArticleId(article_id, article).then((article) => {
-            this.setState({ article, isLoading: false });
-          });
+        fetchCommentsByArticleId(article_id).then((comments) => {
+          this.setState({ comments, isLoading: false });
         });
       })
       .catch((err) => {
@@ -68,7 +44,16 @@ class Article extends Component {
       });
   };
 
+  addPostedComment = (newComment) => {
+    this.setState((currState) => {
+      return {
+        comments: [newComment, ...currState.comments],
+      };
+    });
+  };
+
   render() {
+    console.log(this.state.comments.length, "LENGTH");
     const {
       title,
       author,
@@ -77,15 +62,17 @@ class Article extends Component {
       comment_count,
       created_at,
       votes,
-      comments,
       article_id,
     } = this.state.article;
 
+    const { comments } = this.state;
     const { err } = this.state;
 
     if (err) {
       const { response } = err;
-      return <ErrorDisplayer status={response.status} msg={response.msg} />;
+      return (
+        <ErrorDisplayer status={response.status} msg={response.data.msg} />
+      );
     }
     return (
       <main>
@@ -106,6 +93,11 @@ class Article extends Component {
             <h3 className="single-article-comments">{`Comments: ${comment_count}`}</h3>
             <h3 className="single-article-posted">{created_at}</h3>
             <Voter section="articles" id={article_id} votes={votes} />
+            <PostComment
+              addPostedComment={this.addPostedComment}
+              article_id={this.props.article_id}
+              path={`/articles/${this.state.article.article_id}`}
+            />
             {comments.map((comment) => {
               const { author, body, comment_id, created_at, votes } = comment;
               return (
@@ -127,10 +119,6 @@ class Article extends Component {
                 </section>
               );
             })}
-            <PostComment
-              article_id={this.props.article_id}
-              path={`/articles/${this.state.article.article_id}`}
-            />
           </article>
         )}
       </main>

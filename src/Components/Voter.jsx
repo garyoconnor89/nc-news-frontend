@@ -31,8 +31,9 @@ class Voter extends Component {
       return <ErrorDisplayer status={response.status} msg={response.msg} />;
     }
     return (
-      <div>
+      <section className="vote-display">
         <button
+          className="negative-button"
           onClick={() =>
             this.incrementVotes(this.props.section, this.props.id, -1)
           }
@@ -41,13 +42,14 @@ class Voter extends Component {
         </button>
         <h4>Votes: {this.props.votes + this.state.voteIncrements}</h4>
         <button
+          className="positive-button"
           onClick={() =>
             this.incrementVotes(this.props.section, this.props.id, 1)
           }
         >
           +
         </button>
-      </div>
+      </section>
     );
   }
 }

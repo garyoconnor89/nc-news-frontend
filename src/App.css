@@ -113,7 +113,7 @@
   border-radius: 15px;
   display: grid;
   grid-template-columns: 150px 150px;
-  grid-template-rows: 30px 30px 30px 30px;
+  grid-template-rows: 50px 30px 50px 30px;
   grid-template-areas:
     "title title"
     "topic author"
@@ -122,15 +122,18 @@
   margin: 20px;
   align-items: center;
   justify-content: center;
-  border: 5px rgb(72, 202, 228) solid;
+  border: 5px rgb(40, 34, 37) solid;
 }
 
 .homepage-article-title {
   grid-area: title;
   color: rgb(40, 34, 37);
-  align-self: center;
+  /* align-self: center; */
   font-size: 14px;
-  display: inline-flex;
+  display: flex;
+  /* align-items: center; */
+
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -151,12 +154,15 @@
   font-size: 12px;
 }
 
-.homepage-article-votes {
+.vote-display {
   grid-area: votes;
   color: rgb(40, 34, 37);
-  align-self: center;
+
   font-size: 12px;
-  justify-self: center;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .homepage-article-comments {
@@ -325,12 +331,55 @@
   border-radius: 30px;
 }
 
-.account-info {
+.account-name {
   color: rgb(40, 34, 37);
-  margin: auto;
+  margin: 10px;
   border-radius: 15px;
-  font-size: 25px;
+  font-size: 35px;
   font-weight: 1000;
 }
 
+.account-username {
+  color: rgb(40, 34, 37);
+  margin: 10px;
+  border-radius: 15px;
+  font-size: 25px;
+  font-weight: 1000;
+  font-style: italic;
+}
+
+.account-avatar {
+  border-radius: 15px;
+}
+
 /* ACCOUNT END */
+
+/* VOTE BUTTON START */
+
+.negative-button {
+  background-color: rgb(72, 202, 228);
+  border-radius: 50%;
+  border: 3px rgb(72, 202, 228) solid;
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
+  font-weight: 1000;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.positive-button {
+  background-color: rgb(72, 202, 228);
+  border-radius: 50%;
+  border: 3px rgb(72, 202, 228) solid;
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
+  font-weight: 1000;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* VOTE BUTTON END */
