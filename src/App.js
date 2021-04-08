@@ -8,6 +8,7 @@ import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import Account from "./Components/Account";
 import Article from "./Components/Article";
+import ErrorDisplayer from "./Components/ErrorDisplayer";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Signup path="/signup" />
         <Account path="/account" />
         <Article path="/articles/:article_id" />
+        <ErrorDisplayer status="404" msg="Whoops...path not found" default />
       </Router>
     </main>
   );

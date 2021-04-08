@@ -1,21 +1,31 @@
 import React, { Component } from "react";
 import { fetchTopics } from "../api";
+import ErrorDisplayer from "../Components/ErrorDisplayer";
 
 class Topics extends Component {
   state = {
     topics: [],
     isLoading: true,
+    err: null,
   };
 
   componentDidMount() {
-    fetchTopics().then((topics) => {
-      this.setState({ topics, isLoading: false });
-    });
+    fetchTopics()
+      .then((topics) => {
+        this.setState({ topics, isLoading: false });
+      })
+      .catch((err) => {
+        this.setState({ err, isLoading: false });
+      });
   }
 
   render() {
-    const { topics } = this.state;
-    console.log(topics);
+    const { topics, err } = this.state;
+
+    if (err) {
+      const { response } = err;
+      return <ErrorDisplayer status={response.status} msg={response.msg} />;
+    }
 
     return (
       <section>

@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import { postComment } from "../api";
+import ErrorDisplayer from "../Components/ErrorDisplayer";
 
 class PostComment extends Component {
   state = {
     username: "jessjelly",
     body: "",
+    err: null,
+    isLoading: true,
   };
 
   handleChange = (event) => {
@@ -16,13 +19,22 @@ class PostComment extends Component {
     event.preventDefault();
     const { article_id } = this.props;
     const { username, body } = this.state;
-    postComment(article_id, username, body).then((res) => {
-      this.setState({ username: "jessjelly", body: "" });
-    });
+    postComment(article_id, username, body)
+      .then((res) => {
+        this.setState({ username: "jessjelly", body: "" });
+      })
+      .catch((err) => {
+        this.setState({ err, isLoading: false });
+      });
   };
 
   render() {
-    console.log(this.state.body);
+    const { err } = this.state;
+
+    if (err) {
+      const { response } = err;
+      return <ErrorDisplayer status={response.status} msg={response.msg} />;
+    }
     return (
       <form onSubmit={this.handleSubmit}>
         <label>

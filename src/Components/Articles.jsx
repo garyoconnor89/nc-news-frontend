@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { fetchArticles } from "../api";
 import { Link } from "@reach/router";
+import Voter from "../Components/Voter";
+import ErrorDisplayer from "./ErrorDisplayer";
 
 class Articles extends Component {
   state = {
@@ -9,13 +11,20 @@ class Articles extends Component {
     topic: "",
     sort_by: "created_at",
     order: "desc",
+    err: null,
   };
 
   componentDidMount = () => {
     const { topic, sort_by, order } = this.state;
-    fetchArticles(topic, sort_by, order).then((articles) => {
-      this.setState({ articles, isLoading: false });
-    });
+    fetchArticles(topic, sort_by, order)
+      .then((articles) => {
+        this.setState({ articles, isLoading: false });
+      })
+      .catch((err) => {
+        this.setState({
+          err,
+        });
+      });
   };
 
   componentDidUpdate = (prevProps, prevState) => {
@@ -28,9 +37,15 @@ class Articles extends Component {
 
     if (changeInState) {
       const { topic, sort_by, order } = this.state;
-      fetchArticles(topic, sort_by, order).then((articles) => {
-        this.setState({ articles, isLoading: false });
-      });
+      fetchArticles(topic, sort_by, order)
+        .then((articles) => {
+          this.setState({ articles, isLoading: false });
+        })
+        .catch((err) => {
+          this.setState({
+            err,
+          });
+        });
     }
   };
 
@@ -41,8 +56,12 @@ class Articles extends Component {
   };
 
   render() {
-    const { articles, isLoading } = this.state;
+    const { articles, isLoading, err } = this.state;
 
+    if (err) {
+      const { response } = err;
+      return <ErrorDisplayer status={response.status} msg={response.msg} />;
+    }
     return (
       <section>
         <br></br>
@@ -82,13 +101,18 @@ class Articles extends Component {
                   </Link>
                   <h4 className="homepage-article-topic">{article.topic}</h4>
                   <h4 className="homepage-article-author">{article.author}</h4>
-                  <h5 className="homepage-article-votes">{article.votes}</h5>
+
                   <h5 className="homepage-article-comments">
                     {article.comment_count}
                   </h5>
                   <h5 className="homepage-article-posted">
                     {article.created_at}
                   </h5>
+                  <Voter
+                    section="articles"
+                    id={article.article_id}
+                    votes={article.votes}
+                  />
                 </article>
               );
             })

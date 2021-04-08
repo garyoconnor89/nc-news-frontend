@@ -1,60 +1,77 @@
-// import React from "react";
 import React, { Component } from "react";
 import { fetchTop5Articles } from "../api.js";
 import { Link } from "@reach/router";
+import Voter from "../Components/Voter";
+import ErrorDisplayer from "../Components/ErrorDisplayer";
 
 class Homepage extends Component {
   state = {
     articles: [],
     isLoading: true,
+    err: null,
   };
 
   componentDidMount() {
-    fetchTop5Articles().then((articles) => {
-      this.setState({ articles, isLoading: false });
-    });
+    fetchTop5Articles()
+      .then((articles) => {
+        this.setState({ articles, isLoading: false });
+      })
+      .catch((err) => {
+        this.setState({ err, isLoading: false });
+      });
   }
 
   render() {
-    const { articles, isLoading } = this.state;
-
+    const { articles, isLoading, err } = this.state;
+    if (err) {
+      const { response } = err;
+      return <ErrorDisplayer status={response.status} msg={response.msg} />;
+    }
     return (
-      <section className="homepage-section">
-        <header className="homepage-header">
-          <h1 className="homepage-title">NC-NEWS</h1>
-          <h2 className="homepage-subtitle">Where News Happens</h2>{" "}
-          <p className="homepage-desc">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum
-            alias // perspiciatis nisi voluptatem mollitia, illo eligendi harum
-            repudiandae // unde eos error labore deleniti sapiente officiis
-            explicabo repellendus // modi! Dolores, earum!
-          </p>
-        </header>
-        {isLoading ? (
-          <h1>Is Loading</h1>
-        ) : (
-          <main className="homepage-articles">
-            {articles.map((article) => {
-              console.log(article.article_id);
-              return (
-                <article key={article.id} className="homepage-article">
-                  <Link to={`/articles/${article.article_id}`}>
-                    <h3 className="homepage-article-title">{article.title}</h3>
-                  </Link>
+      <main>
+        <br />
+        <section className="homepage-section">
+          <header className="homepage-header">
+            <h1 className="homepage-title">NC-NEWS</h1>
+            <h2 className="homepage-subtitle">Where News Happens</h2>{" "}
+            <p className="homepage-desc">
+              Welcome to NC-News. You're currently logged in as jessjelly to
+              show you individual user functionality. One day, in the distant
+              future, you may be able to signup as a user. We can but dream.
+            </p>
+          </header>
+          {isLoading ? (
+            <h1>Is Loading</h1>
+          ) : (
+            <article className="homepage-articles">
+              {articles.map((article) => {
+                return (
+                  <article key={article.id} className="homepage-article">
+                    <Link to={`/articles/${article.article_id}`}>
+                      <h3 className="homepage-article-title">
+                        {article.title}
+                      </h3>
+                    </Link>
 
-                  <h4 className="homepage-article-topic">{`Topic: ${article.topic}`}</h4>
-                  <h4 className="homepage-article-author">{`Author: ${article.author}`}</h4>
-                  <h4 className="homepage-article-votes">{`Votes: ${article.votes}`}</h4>
-                  <h4 className="homepage-article-comments">{`Comments: ${article.comment_count}`}</h4>
-                  <h5 className="homepage-article-posted">
-                    {article.created_at}
-                  </h5>
-                </article>
-              );
-            })}
-          </main>
-        )}
-      </section>
+                    <h4 className="homepage-article-topic">{`Topic: ${article.topic}`}</h4>
+                    <h4 className="homepage-article-author">{`Author: ${article.author}`}</h4>
+
+                    <h4 className="homepage-article-comments">{`Comments: ${article.comment_count}`}</h4>
+                    <h5 className="homepage-article-posted">
+                      {article.created_at}
+                    </h5>
+                    <Voter
+                      section="articles"
+                      id={article.article_id}
+                      votes={article.votes}
+                    />
+                  </article>
+                );
+              })}
+            </article>
+          )}
+        </section>
+      </main>
     );
   }
 }

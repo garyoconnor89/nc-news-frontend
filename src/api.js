@@ -46,6 +46,20 @@ export const postComment = (article_id, username, body) => {
   return request
     .post(`/articles/${article_id}/comments`, comment)
     .then((response) => {
-      return response;
+      console.log(response);
+    });
+};
+
+export const deleteComment = (comment_id) => {
+  return request.delete(`/comments/${comment_id}`).then((response) => {
+    console.log(response);
+  });
+};
+
+export const updateVotes = (section, id, increment) => {
+  return request
+    .patch(`/${section}/${id}`, { inc_votes: increment })
+    .then((response) => {
+      console.log(response);
     });
 };
