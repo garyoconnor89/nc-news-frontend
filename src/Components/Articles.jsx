@@ -68,7 +68,7 @@ class Articles extends Component {
         <br></br>
         <br></br>
         <br></br>
-        <main className="homepage-articles">
+        <main className="homepage-articles articles-container">
           <h1 className="articles-title">Articles</h1>
           <form className="articles-form">
             <label className="articles-form-topic" htmlFor="topic">
@@ -116,6 +116,7 @@ class Articles extends Component {
               <option value="asc">Ascending</option>
             </select>
           </form>
+          {/* <section className="homepage-articles"> */}
           {isLoading ? (
             <h1>Is Loading</h1>
           ) : (
@@ -145,6 +146,7 @@ class Articles extends Component {
               );
             })
           )}
+          {/* </section> */}
         </main>
       </section>
     );

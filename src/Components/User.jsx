@@ -19,10 +19,9 @@ class User extends Component {
   };
 
   render() {
-    console.log(this.state.user);
     const { user, articles, isLoading } = this.state;
     const { name, avatar_url, username } = this.state.user;
-    console.log(this.state.user, "NAME");
+
     return (
       <main>
         <br />
@@ -30,6 +29,7 @@ class User extends Component {
         <br />
         <br />
         <br />
+
         {isLoading ? (
           <h1>Is Loading</h1>
         ) : (

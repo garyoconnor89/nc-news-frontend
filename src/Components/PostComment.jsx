@@ -41,13 +41,11 @@ class PostComment extends Component {
         <label>
           Comment:
           <br />
-          <input
+          <textarea
             className="post-comment-input"
-            value={this.state.body}
-            onChange={this.handleChange}
-            type="text"
-            placeholder="Enter comment here. Be kind."
-          ></input>
+            cols="30"
+            rows="10"
+          ></textarea>
           <br />
           <input
             className="post-comment-submit"

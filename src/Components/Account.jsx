@@ -29,35 +29,37 @@ class Account extends Component {
       <main className="account">
         <br />
         <br />
+
         <br />
-        <br />
-        <h1 className="user-title">Account</h1>
-        <section className="user-container">
-          <h3 className="user-name">{name}</h3>
-          <img
-            className="user-avatar"
-            src={avatar_url}
-            alt={`${username}'s avatar`}
-          />
-          <h3 className="user-username">{username}</h3>
-        </section>
-        {isLoading ? (
-          <h1>Is Loading</h1>
-        ) : (
-          <section className="user-articles">
-            <h2>{`${username}'s Articles`}</h2>
-            {articles.map((article) => {
-              return (
-                <Link
-                  key={article.article_id}
-                  to={`/articles/${article.article_id}`}
-                >
-                  <h5 className="user-article-title">{article.title}</h5>
-                </Link>
-              );
-            })}
+        <section className="account">
+          <h1 className="user-title">Account</h1>
+          <section className="user-container">
+            <h3 className="user-name">{name}</h3>
+            <img
+              className="user-avatar"
+              src={avatar_url}
+              alt={`${username}'s avatar`}
+            />
+            <h3 className="user-username">{username}</h3>
           </section>
-        )}
+          {isLoading ? (
+            <h1>Is Loading</h1>
+          ) : (
+            <section className="user-articles">
+              <h2>{`${username}'s Articles`}</h2>
+              {articles.map((article) => {
+                return (
+                  <Link
+                    key={article.article_id}
+                    to={`/articles/${article.article_id}`}
+                  >
+                    <h5 className="user-article-title">{article.title}</h5>
+                  </Link>
+                );
+              })}
+            </section>
+          )}
+        </section>
       </main>
     );
   }

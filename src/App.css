@@ -112,8 +112,8 @@
   padding: 5px;
   border-radius: 15px;
   display: grid;
-  grid-template-columns: 200px 150px;
-  grid-template-rows: 100px 30px 50px;
+  grid-template-columns: 200px 110px;
+  grid-template-rows: 120px 50px 50px;
   grid-template-areas:
     "title topic"
     "author comments"
@@ -128,7 +128,7 @@
   grid-area: title;
   color: rgb(40, 34, 37);
   /* align-self: center; */
-  font-size: 16px;
+  font-size: 14px;
   display: flex;
   /* align-items: center; */
 
@@ -336,6 +336,7 @@
 .single-article-body {
   font-size: 12px;
   color: rgb(40, 34, 37);
+  padding: 10px;
 }
 
 .single-article-comments {
@@ -371,7 +372,7 @@
   border-radius: 5px;
   background-color: rgb(72, 202, 228);
   border: 2px black solid;
-  width: 300px;
+  width: 200px;
   height: 100px;
   margin: 10px;
   font-family: "Quantico", sans-serif;
@@ -414,6 +415,7 @@
 .article-comment-body {
   font-size: 10px;
   color: rgb(40, 34, 37);
+  padding: 10px;
 }
 
 .article-comment-votes {
@@ -424,6 +426,23 @@
 .article-comment-posted {
   font-size: 10px;
   color: rgb(40, 34, 37);
+}
+
+.comment-delete {
+  color: rgb(72, 202, 228);
+  grid-area: topic-input;
+  border-radius: 5px;
+  background-color: black;
+  border: 2px rgb(72, 202, 228) solid;
+  width: 120px;
+  height: 25px;
+  margin: 10px;
+  font-family: "Quantico", sans-serif;
+  font-size: 12px;
+}
+
+.comment-delete:hover {
+  transform: scale(1.2);
 }
 
 /* SINGLE ARTICLE COMMENTS END */
@@ -509,6 +528,10 @@
   justify-content: center;
 }
 
+.login-title {
+  font-size: 40px;
+}
+
 .login-form-input {
   grid-area: topic-input;
   border-radius: 5px;
@@ -539,6 +562,10 @@
     "order order-input";
   align-items: center;
   justify-content: center;
+}
+
+.signup-title {
+  font-size: 40px;
 }
 
 .signup-form-input {
@@ -610,3 +637,40 @@
 }
 
 /* VOTE BUTTON END */
+
+/* GENERAL SCREEN QUERY START */
+
+@media screen and (min-width: 600px) {
+  .single-article,
+  .topics-container,
+  .articles-container,
+  .signup-container,
+  .login-container,
+  .account {
+    margin-top: 60px;
+  }
+  .account,
+  .signup-container,
+  .login-container,
+  .topics-container {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  .user-container,
+  .user-articles {
+    margin-left: 350px;
+    margin-right: 350px;
+  }
+  .homepage-articles {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 1500px;
+    justify-content: center;
+  }
+  .homepage-article {
+    width: 400px;
+  }
+}
+
+/* GENERAL SCREEN QUERY END */

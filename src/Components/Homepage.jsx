@@ -30,6 +30,7 @@ class Homepage extends Component {
     return (
       <main>
         <br />
+        <br />
         <section className="homepage-section">
           <header className="homepage-header">
             <h1 className="homepage-title">NC-NEWS</h1>

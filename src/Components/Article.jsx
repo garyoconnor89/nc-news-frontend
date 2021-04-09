@@ -115,6 +115,7 @@ class Article extends Component {
                   <Voter section="comments" id={comment_id} votes={votes} />
                   {author === "jessjelly" ? (
                     <button
+                      className="comment-delete"
                       onClick={this.deleteCommentClick}
                       value={comment_id}
                     >
