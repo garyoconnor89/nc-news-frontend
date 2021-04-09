@@ -32,6 +32,8 @@ class PostComment extends Component {
   render() {
     const { err } = this.state;
 
+    console.dir(err);
+
     if (err) {
       const { response } = err;
       return <ErrorDisplayer status={response.status} msg={response.msg} />;
@@ -41,11 +43,13 @@ class PostComment extends Component {
         <label>
           Comment:
           <br />
-          <textarea
+          <input
             className="post-comment-input"
-            cols="30"
-            rows="10"
-          ></textarea>
+            value={this.state.body}
+            onChange={this.handleChange}
+            type="text"
+            placeholder="Enter comment here. Be kind."
+          ></input>
           <br />
           <input
             className="post-comment-submit"

@@ -54,7 +54,6 @@ class Article extends Component {
   };
 
   render() {
-    console.log(this.state.comments.length, "LENGTH");
     const {
       title,
       author,

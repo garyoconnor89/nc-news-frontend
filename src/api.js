@@ -69,7 +69,6 @@ export const fetchArticlesByAuthor = (author) => {
 
 export const fetchUser = (username) => {
   return request.get(`/users/${username}`).then(({ data }) => {
-    console.log(data);
     return data.user.user;
   });
 };

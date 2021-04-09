@@ -11,6 +11,7 @@ function Nav(props) {
             alt="Home icon"
             className="nav-logo"
           />
+          <br />
           Home
         </h3>
       </Link>
@@ -21,6 +22,7 @@ function Nav(props) {
             alt="Topics icon"
             className="nav-logo"
           />
+          <br />
           Topics
         </h3>
       </Link>
@@ -31,10 +33,13 @@ function Nav(props) {
             alt="Articles icon"
             className="nav-logo"
           />
+          <br />
           Articles
         </h3>
       </Link>
-      <h1 className="nav-title"> NC-NEWS </h1>
+      <Link to="/">
+        <h1 className="nav-title"> NC-NEWS </h1>
+      </Link>
       <Link to="/login">
         <h3 className="nav-link">
           <img
@@ -42,6 +47,7 @@ function Nav(props) {
             alt="Articles icon"
             className="nav-logo"
           />
+          <br />
           Login
         </h3>
       </Link>
@@ -52,6 +58,7 @@ function Nav(props) {
             alt="Articles icon"
             className="nav-logo"
           />
+          <br />
           Sign Up
         </h3>
       </Link>
@@ -62,6 +69,7 @@ function Nav(props) {
             alt="Articles icon"
             className="nav-logo"
           />
+          <br />
           Account
         </h3>
       </Link>
