@@ -37,9 +37,13 @@ function Nav(props) {
           Articles
         </h3>
       </Link>
-      <Link to="/">
-        <h1 className="nav-title"> NC-NEWS </h1>
-      </Link>
+
+      <h1 className="nav-title">
+        {" "}
+        NC-NEWS
+        <p id="nav-user"> 👤 jessjelly</p>{" "}
+      </h1>
+
       <Link to="/login">
         <h3 className="nav-link">
           <img
