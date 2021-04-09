@@ -100,7 +100,7 @@ class Article extends Component {
             <PostComment
               addPostedComment={this.addPostedComment}
               article_id={this.props.article_id}
-              path={`/articles/${this.state.article.article_id}`}
+              path={`/articles/${article_id}`}
             />
             {comments.map((comment) => {
               const { author, body, comment_id, created_at, votes } = comment;

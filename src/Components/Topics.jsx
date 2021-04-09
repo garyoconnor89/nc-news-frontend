@@ -40,10 +40,11 @@ class Topics extends Component {
             <h1>Is Loading</h1>
           ) : (
             topics.map((topic) => {
+              const { slug, description } = topic;
               return (
-                <section key={topic.slug} className="topic">
-                  <h1 className="topic-slug">{topic.slug}</h1>
-                  <h3 className="topic-desc">{topic.description}</h3>
+                <section key={slug} className="topic">
+                  <h1 className="topic-slug">{slug}</h1>
+                  <h3 className="topic-desc">{description}</h3>
                 </section>
               );
             })

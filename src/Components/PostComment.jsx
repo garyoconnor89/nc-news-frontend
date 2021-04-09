@@ -32,8 +32,6 @@ class PostComment extends Component {
   render() {
     const { err } = this.state;
 
-    console.dir(err);
-
     if (err) {
       const { response } = err;
       return <ErrorDisplayer status={response.status} msg={response.msg} />;

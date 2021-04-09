@@ -47,12 +47,10 @@ class User extends Component {
             <section className="user-articles">
               <h2>{`${username}'s Articles`}</h2>
               {articles.map((article) => {
+                const { article_id, title } = article;
                 return (
-                  <Link
-                    key={article.article_id}
-                    to={`/articles/${article.article_id}`}
-                  >
-                    <h5 className="user-article-title">{article.title}</h5>
+                  <Link key={article_id} to={`/articles/${article_id}`}>
+                    <h5 className="user-article-title">{title}</h5>
                   </Link>
                 );
               })}

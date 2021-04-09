@@ -26,6 +26,8 @@ class Voter extends Component {
 
   render() {
     const { err } = this.state;
+    const { section, id, votes } = this.props;
+    const { voteIncrements } = this.state;
     if (err) {
       const { response } = err;
       return <ErrorDisplayer status={response.status} msg={response.msg} />;
@@ -34,18 +36,14 @@ class Voter extends Component {
       <section className="vote-display">
         <button
           className="negative-button"
-          onClick={() =>
-            this.incrementVotes(this.props.section, this.props.id, -1)
-          }
+          onClick={() => this.incrementVotes(section, id, -1)}
         >
           -
         </button>
-        <h4>Votes: {this.props.votes + this.state.voteIncrements}</h4>
+        <h4>Votes: {votes + voteIncrements}</h4>
         <button
           className="positive-button"
-          onClick={() =>
-            this.incrementVotes(this.props.section, this.props.id, 1)
-          }
+          onClick={() => this.incrementVotes(section, id, 1)}
         >
           +
         </button>

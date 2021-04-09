@@ -116,37 +116,38 @@ class Articles extends Component {
           </select>
         </form>
         <main className="homepage-articles articles-container">
-          {/* <section className="homepage-articles"> */}
           {isLoading ? (
             <h1>Is Loading</h1>
           ) : (
             articles.map((article) => {
+              const {
+                article_id,
+                title,
+                topic,
+                author,
+                comment_count,
+                created_at,
+                votes,
+              } = article;
               return (
-                <article key={article.article_id} className="homepage-article">
-                  <Link to={`/articles/${article.article_id}`}>
-                    <h3 className="homepage-article-title">{article.title}</h3>
+                <article key={article_id} className="homepage-article">
+                  <Link to={`/articles/${article_id}`}>
+                    <h3 className="homepage-article-title">{title}</h3>
                   </Link>
-                  <h4 className="homepage-article-topic">{`Topic: ${article.topic}`}</h4>
-                  <Link to={`/users/${article.author}`}>
-                    <h4 className="homepage-article-author">{`Author: ${article.author}`}</h4>
+                  <h4 className="homepage-article-topic">{`Topic: ${topic}`}</h4>
+                  <Link to={`/users/${author}`}>
+                    <h4 className="homepage-article-author">{`Author: ${author}`}</h4>
                   </Link>
 
                   <h5 className="homepage-article-comments">
-                    {`Comments: ${article.comment_count}`}
+                    {`Comments: ${comment_count}`}
                   </h5>
-                  <h5 className="homepage-article-posted">
-                    {article.created_at}
-                  </h5>
-                  <Voter
-                    section="articles"
-                    id={article.article_id}
-                    votes={article.votes}
-                  />
+                  <h5 className="homepage-article-posted">{created_at}</h5>
+                  <Voter section="articles" id={article_id} votes={votes} />
                 </article>
               );
             })
           )}
-          {/* </section> */}
         </main>
       </section>
     );

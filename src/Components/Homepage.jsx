@@ -46,28 +46,29 @@ class Homepage extends Component {
           ) : (
             <article className="homepage-articles">
               {articles.map((article) => {
+                const {
+                  article_id,
+                  title,
+                  topic,
+                  author,
+                  comment_count,
+                  created_at,
+                  votes,
+                } = article;
                 return (
-                  <article key={article.id} className="homepage-article">
-                    <Link to={`/articles/${article.article_id}`}>
-                      <h3 className="homepage-article-title">
-                        {article.title}
-                      </h3>
+                  <article key={article_id} className="homepage-article">
+                    <Link to={`/articles/${article_id}`}>
+                      <h3 className="homepage-article-title">{title}</h3>
                     </Link>
 
-                    <h4 className="homepage-article-topic">{`Topic: ${article.topic}`}</h4>
-                    <Link to={`/users/${article.author}`}>
-                      <h4 className="homepage-article-author">{`Author: ${article.author}`}</h4>
+                    <h4 className="homepage-article-topic">{`Topic: ${topic}`}</h4>
+                    <Link to={`/users/${author}`}>
+                      <h4 className="homepage-article-author">{`Author: ${author}`}</h4>
                     </Link>
 
-                    <h4 className="homepage-article-comments">{`Comments: ${article.comment_count}`}</h4>
-                    <h5 className="homepage-article-posted">
-                      {article.created_at}
-                    </h5>
-                    <Voter
-                      section="articles"
-                      id={article.article_id}
-                      votes={article.votes}
-                    />
+                    <h4 className="homepage-article-comments">{`Comments: ${comment_count}`}</h4>
+                    <h5 className="homepage-article-posted">{created_at}</h5>
+                    <Voter section="articles" id={article_id} votes={votes} />
                   </article>
                 );
               })}
@@ -80,85 +81,3 @@ class Homepage extends Component {
 }
 
 export default Homepage;
-
-// function Homepage(props) {
-//   return (
-//     <section className="homepage-section">
-//       <br></br>
-//       <header className="homepage-header">
-//         <h1 className="homepage-title">NC-NEWS</h1>
-//         <h2 className="homepage-subtitle">Where News Happens</h2>
-//         <p className="homepage-desc">
-//           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum alias
-//           perspiciatis nisi voluptatem mollitia, illo eligendi harum repudiandae
-//           unde eos error labore deleniti sapiente officiis explicabo repellendus
-//           modi! Dolores, earum!
-//         </p>
-//       </header>
-//       <main className="homepage-articles">
-//         <article className="homepage-article">
-//           <h3 className="homepage-article-title">Title Example</h3>
-//           <h4 className="homepage-article-topic">Topic Example</h4>
-//           <p className="homepage-article-body">
-//             Body Example. Lorem ipsum dolor sit amet consectetur adipisicing
-//             elit. Nam quam quod in, nostrum sequi ipsa soluta doloribus velit
-//             totam itaque nulla et dolorem qui quo iste vero labore similique
-//             adipisci!
-//           </p>
-//           <h4 className="homepage-article-author">Author Example</h4>
-//           <h5 className="homepage-article-posted">Posted at Example</h5>
-//         </article>
-//         <article className="homepage-article">
-//           <h3 className="homepage-article-title">Title Example</h3>
-//           <h4 className="homepage-article-topic">Topic Example</h4>
-//           <p className="homepage-article-body">
-//             Body Example. Lorem ipsum dolor sit amet consectetur adipisicing
-//             elit. Nam quam quod in, nostrum sequi ipsa soluta doloribus velit
-//             totam itaque nulla et dolorem qui quo iste vero labore similique
-//             adipisci!
-//           </p>
-//           <h4 className="homepage-article-author">Author Example</h4>
-//           <h5 className="homepage-article-posted">Posted at Example</h5>
-//         </article>
-//         <article className="homepage-article">
-//           <h3 className="homepage-article-title">Title Example</h3>
-//           <h4 className="homepage-article-topic">Topic Example</h4>
-//           <p className="homepage-article-body">
-//             Body Example. Lorem ipsum dolor sit amet consectetur adipisicing
-//             elit. Nam quam quod in, nostrum sequi ipsa soluta doloribus velit
-//             totam itaque nulla et dolorem qui quo iste vero labore similique
-//             adipisci!
-//           </p>
-//           <h4 className="homepage-article-author">Author Example</h4>
-//           <h5 className="homepage-article-posted">Posted at Example</h5>
-//         </article>
-//         <article className="homepage-article">
-//           <h3 className="homepage-article-title">Title Example</h3>
-//           <h4 className="homepage-article-topic">Topic Example</h4>
-//           <p className="homepage-article-body">
-//             Body Example. Lorem ipsum dolor sit amet consectetur adipisicing
-//             elit. Nam quam quod in, nostrum sequi ipsa soluta doloribus velit
-//             totam itaque nulla et dolorem qui quo iste vero labore similique
-//             adipisci!
-//           </p>
-//           <h4 className="homepage-article-author">Author Example</h4>
-//           <h5 className="homepage-article-posted">Posted at Example</h5>
-//         </article>
-//         <article className="homepage-article">
-//           <h3 className="homepage-article-title">Title Example</h3>
-//           <h4 className="homepage-article-topic">Topic Example</h4>
-//           <p className="homepage-article-body">
-//             Body Example. Lorem ipsum dolor sit amet consectetur adipisicing
-//             elit. Nam quam quod in, nostrum sequi ipsa soluta doloribus velit
-//             totam itaque nulla et dolorem qui quo iste vero labore similique
-//             adipisci!
-//           </p>
-//           <h4 className="homepage-article-author">Author Example</h4>
-//           <h5 className="homepage-article-posted">Posted at Example</h5>
-//         </article>
-//       </main>
-//     </section>
-//   );
-// }
-
-// export default Homepage;
