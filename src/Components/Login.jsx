@@ -30,7 +30,9 @@ class Login extends Component {
             name="login-password"
           />
           <br />
-          <button type="submit">Login!</button>
+          <button className="login-form-submit" type="submit">
+            Login!
+          </button>
         </form>
       </main>
     );

@@ -25,6 +25,11 @@ class User extends Component {
     console.log(this.state.user, "NAME");
     return (
       <main>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         {isLoading ? (
           <h1>Is Loading</h1>
         ) : (

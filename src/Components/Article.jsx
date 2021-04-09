@@ -86,16 +86,18 @@ class Article extends Component {
         {this.state.isLoading ? (
           <h1>Is Loading</h1>
         ) : (
-          <article className="single-article">
-            <h3 className="single-article-title">{title}</h3>
-            <h3 className="single-article-topic">{`Topic: ${topic}`}</h3>
-            <Link to={`/users/${author}`}>
-              <h4 className="homepage-article-author">{`Author: ${author}`}</h4>
-            </Link>
-            <p className="single-article-body">{body}</p>
-            <h3 className="single-article-comments">{`Comments: ${comment_count}`}</h3>
-            <h3 className="single-article-posted">{created_at}</h3>
-            <Voter section="articles" id={article_id} votes={votes} />
+          <article>
+            <section className="single-article">
+              <h3 className="single-article-title">{title}</h3>
+              <h3 className="single-article-topic">{`Topic: ${topic}`}</h3>
+              <Link to={`/users/${author}`}>
+                <h4 className="homepage-article-author">{`Author: ${author}`}</h4>
+              </Link>
+              <p className="single-article-body">{body}</p>
+              <h3 className="single-article-comments">{`Comments: ${comment_count}`}</h3>
+              <h3 className="single-article-posted">{created_at}</h3>
+              <Voter section="articles" id={article_id} votes={votes} />
+            </section>
             <PostComment
               addPostedComment={this.addPostedComment}
               article_id={this.props.article_id}

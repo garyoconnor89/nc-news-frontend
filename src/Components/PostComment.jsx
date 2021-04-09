@@ -30,7 +30,6 @@ class PostComment extends Component {
   };
 
   render() {
-    console.log(this.state.body.length);
     const { err } = this.state;
 
     if (err) {
@@ -38,16 +37,23 @@ class PostComment extends Component {
       return <ErrorDisplayer status={response.status} msg={response.msg} />;
     }
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="post-comment-form" onSubmit={this.handleSubmit}>
         <label>
           Comment:
+          <br />
           <input
+            className="post-comment-input"
             value={this.state.body}
             onChange={this.handleChange}
             type="text"
             placeholder="Enter comment here. Be kind."
           ></input>
-          <input className="button" type="submit" value="Post Comment!" />
+          <br />
+          <input
+            className="post-comment-submit"
+            type="submit"
+            value="Post Comment!"
+          />
         </label>
       </form>
     );

@@ -355,6 +355,47 @@
 
 /* SINGLE ARTICLE END */
 
+/* SINGLE ARTICLE POST START */
+
+.post-comment-form {
+  border: 3px rgb(40, 34, 37) solid;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 30px;
+  padding: 20px;
+}
+
+.post-comment-input {
+  grid-area: topic-input;
+  border-radius: 5px;
+  background-color: rgb(72, 202, 228);
+  border: 2px black solid;
+  width: 300px;
+  height: 100px;
+  margin: 10px;
+  font-family: "Quantico", sans-serif;
+}
+
+.post-comment-submit {
+  color: rgb(72, 202, 228);
+  grid-area: topic-input;
+  border-radius: 5px;
+  background-color: black;
+  border: 2px rgb(72, 202, 228) solid;
+  width: 200px;
+  height: 40px;
+  margin: 10px;
+  font-family: "Quantico", sans-serif;
+  font-size: 14px;
+}
+
+.post-comment-submit:hover {
+  transform: scale(1.2);
+}
+
+/* SINGLE ARTICLE POST START */
+
 /* SINGLE ARTICLE COMMENTS START */
 
 .article-comment {
@@ -511,19 +552,22 @@
   font-family: "Quantico", sans-serif;
 }
 
-.signup-form-submit {
+.signup-form-submit,
+.login-form-submit {
   color: rgb(72, 202, 228);
   grid-area: topic-input;
   border-radius: 5px;
   background-color: black;
   border: 2px rgb(72, 202, 228) solid;
   width: 100px;
-  height: 30px;
+  height: 40px;
   margin: 10px;
   font-family: "Quantico", sans-serif;
+  font-size: 20px;
 }
 
-.signup-form-submit:hover {
+.signup-form-submit:hover,
+.login-form-submit:hover {
   transform: scale(1.2);
 }
 

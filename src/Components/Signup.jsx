@@ -61,7 +61,7 @@ class Signup extends Component {
           <br />
           <input
             className="signup-form-input"
-            type="retype-password"
+            type="password"
             id="signup-retype-password"
             name="signup-retype-password"
           />
