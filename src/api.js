@@ -48,17 +48,13 @@ export const postComment = (article_id, username, body) => {
 };
 
 export const deleteComment = (comment_id) => {
-  return request.delete(`/comments/${comment_id}`).then((response) => {
-    console.log(response);
-  });
+  return request.delete(`/comments/${comment_id}`).then((response) => {});
 };
 
 export const updateVotes = (section, id, increment) => {
   return request
     .patch(`/${section}/${id}`, { inc_votes: increment })
-    .then((response) => {
-      console.log(response);
-    });
+    .then((response) => {});
 };
 
 export const fetchArticlesByAuthor = (author) => {

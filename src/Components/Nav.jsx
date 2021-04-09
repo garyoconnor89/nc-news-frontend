@@ -18,7 +18,7 @@ function Nav(props) {
       <Link to="/topics">
         <h3 className="nav-link">
           <img
-            src="https://cdn3.iconfinder.com/data/icons/communication/512/topics-512.png"
+            src="https://static.thenounproject.com/png/2334497-200.png"
             alt="Topics icon"
             className="nav-logo"
           />
