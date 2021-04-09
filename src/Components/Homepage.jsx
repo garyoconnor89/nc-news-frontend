@@ -54,7 +54,9 @@ class Homepage extends Component {
                     </Link>
 
                     <h4 className="homepage-article-topic">{`Topic: ${article.topic}`}</h4>
-                    <h4 className="homepage-article-author">{`Author: ${article.author}`}</h4>
+                    <Link to={`/users/${article.author}`}>
+                      <h4 className="homepage-article-author">{`Author: ${article.author}`}</h4>
+                    </Link>
 
                     <h4 className="homepage-article-comments">{`Comments: ${article.comment_count}`}</h4>
                     <h5 className="homepage-article-posted">

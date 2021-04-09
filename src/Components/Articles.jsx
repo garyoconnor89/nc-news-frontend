@@ -70,26 +70,52 @@ class Articles extends Component {
         <br></br>
         <main className="homepage-articles">
           <h1 className="articles-title">Articles</h1>
-          <label htmlFor="topic">Filter by topic: </label>
-          <select onChange={this.handleChange} name="topic" id="topic">
-            <option>All</option>
-            <option value="coding">Coding</option>
-            <option value="cooking">Cooking</option>
-            <option value="football">Football</option>
-          </select>
-          <br />
-          <label htmlFor="sort_by">Sort by category: </label>
-          <select onChange={this.handleChange} name="sort_by" id="sort_by">
-            <option value="created_at">Date Created</option>
-            <option value="comment_count">Comment Count</option>
-            <option value="votes">Votes</option>
-          </select>
-          <br />
-          <label htmlFor="order">Order by: </label>
-          <select onChange={this.handleChange} name="order" id="order">
-            <option value="desc">Descending</option>
-            <option value="asc">Ascending</option>
-          </select>
+          <form className="articles-form">
+            <label className="articles-form-topic" htmlFor="topic">
+              Filter by topic:{" "}
+            </label>
+            <br />
+            <select
+              className="articles-form-topic-input"
+              onChange={this.handleChange}
+              name="topic"
+              id="topic"
+            >
+              <option>All</option>
+              <option value="coding">Coding</option>
+              <option value="cooking">Cooking</option>
+              <option value="football">Football</option>
+            </select>
+            <br />
+            <label className="articles-form-category" htmlFor="sort_by">
+              Sort by category:{" "}
+            </label>
+            <br />
+            <select
+              className="articles-form-category-input"
+              onChange={this.handleChange}
+              name="sort_by"
+              id="sort_by"
+            >
+              <option value="created_at">Date Created</option>
+              <option value="comment_count">Comment Count</option>
+              <option value="votes">Votes</option>
+            </select>
+            <br />
+            <label className="articles-form-order" htmlFor="order">
+              Order by:{" "}
+            </label>
+            <br />
+            <select
+              className="articles-form-order-input"
+              onChange={this.handleChange}
+              name="order"
+              id="order"
+            >
+              <option value="desc">Descending</option>
+              <option value="asc">Ascending</option>
+            </select>
+          </form>
           {isLoading ? (
             <h1>Is Loading</h1>
           ) : (
@@ -99,11 +125,13 @@ class Articles extends Component {
                   <Link to={`/articles/${article.article_id}`}>
                     <h3 className="homepage-article-title">{article.title}</h3>
                   </Link>
-                  <h4 className="homepage-article-topic">{article.topic}</h4>
-                  <h4 className="homepage-article-author">{article.author}</h4>
+                  <h4 className="homepage-article-topic">{`Topic: ${article.topic}`}</h4>
+                  <Link to={`/users/${article.author}`}>
+                    <h4 className="homepage-article-author">{`Author: ${article.author}`}</h4>
+                  </Link>
 
                   <h5 className="homepage-article-comments">
-                    {article.comment_count}
+                    {`Comments: ${article.comment_count}`}
                   </h5>
                   <h5 className="homepage-article-posted">
                     {article.created_at}

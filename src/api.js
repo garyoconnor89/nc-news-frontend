@@ -38,14 +38,6 @@ export const fetchCommentsByArticleId = (article_id) => {
   });
 };
 
-// export const fetchCommentsByArticleId = (article_id, article) => {
-//   return request.get(`/articles/${article_id}/comments`).then(({ data }) => {
-//     const articleWithComments = { article };
-//     articleWithComments.article.comments = data.comments;
-//     return articleWithComments.article;
-//   });
-// };
-
 export const postComment = (article_id, username, body) => {
   const comment = { username, body };
   return request
@@ -67,4 +59,17 @@ export const updateVotes = (section, id, increment) => {
     .then((response) => {
       console.log(response);
     });
+};
+
+export const fetchArticlesByAuthor = (author) => {
+  return request.get(`/articles?author=${author}`).then(({ data }) => {
+    return data.articles;
+  });
+};
+
+export const fetchUser = (username) => {
+  return request.get(`/users/${username}`).then(({ data }) => {
+    console.log(data);
+    return data.user.user;
+  });
 };

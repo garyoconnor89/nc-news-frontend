@@ -41,7 +41,7 @@ class Topics extends Component {
           ) : (
             topics.map((topic) => {
               return (
-                <section className="topic">
+                <section key={topic.slug} className="topic">
                   <h1 className="topic-slug">{topic.slug}</h1>
                   <h3 className="topic-desc">{topic.description}</h3>
                 </section>

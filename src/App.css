@@ -105,20 +105,19 @@
 
 .homepage-desc {
   padding: 10px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .homepage-article {
   padding: 5px;
   border-radius: 15px;
   display: grid;
-  grid-template-columns: 150px 150px;
-  grid-template-rows: 50px 30px 50px 30px;
+  grid-template-columns: 200px 150px;
+  grid-template-rows: 100px 30px 50px;
   grid-template-areas:
-    "title title"
-    "topic author"
-    "votes comments"
-    "posted posted";
+    "title topic"
+    "author comments"
+    "votes posted";
   margin: 20px;
   align-items: center;
   justify-content: center;
@@ -129,12 +128,18 @@
   grid-area: title;
   color: rgb(40, 34, 37);
   /* align-self: center; */
-  font-size: 14px;
+  font-size: 16px;
   display: flex;
   /* align-items: center; */
 
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
+  text-decoration: none;
+  padding: 5px;
+}
+
+.homepage-article-title:hover {
+  transform: scale(1.2);
 }
 
 .homepage-article-topic {
@@ -143,7 +148,8 @@
   grid-area: topic;
   color: rgb(40, 34, 37);
   margin: 10px;
-  font-size: 12px;
+  font-size: 14px;
+  padding: 20px;
 }
 
 .homepage-article-author {
@@ -152,6 +158,10 @@
   color: rgb(40, 34, 37);
   align-self: center;
   font-size: 12px;
+  text-decoration: none;
+}
+.homepage-article-author:hover {
+  transform: scale(1.2);
 }
 
 .vote-display {
@@ -211,16 +221,18 @@
   color: rgb(40, 34, 37);
   margin: auto;
   border-radius: 15px;
-  font-size: 20px;
+  font-size: 35px;
   font-weight: 1000;
+  padding: 20px;
 }
 
 .topic-desc {
   color: rgb(40, 34, 37);
   margin: auto;
   border-radius: 15px;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 1000;
+  padding: 0px 20px 20px 20px;
 }
 
 /* TOPICS END */
@@ -232,9 +244,68 @@
   color: rgb(40, 34, 37);
 }
 
-.homepage-article-body {
-  color: green;
+.articles-form {
+  border: 5px rgb(72, 202, 228) solid;
+  border-radius: 15px;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 10px;
+  grid-template-columns: 150px 150px;
+  grid-template-rows: 30px 30px 30px;
+  grid-template-areas:
+    "topic topic-input"
+    "category category-input"
+    "order order-input";
+  align-items: center;
+  justify-content: center;
 }
+
+.articles-form-topic {
+  grid-area: topic;
+}
+
+.articles-form-topic-input {
+  grid-area: topic-input;
+  border-radius: 5px;
+  background-color: rgb(72, 202, 228);
+  border: 2px black solid;
+  width: 120px;
+  height: 30px;
+  margin: 10px;
+  font-family: "Quantico", sans-serif;
+}
+
+.articles-form-category {
+  grid-area: category;
+}
+
+.articles-form-category-input {
+  grid-area: category-input;
+  border-radius: 5px;
+  background-color: rgb(72, 202, 228);
+  border: 2px black solid;
+  width: 120px;
+  height: 30px;
+  margin: 10px;
+  font-family: "Quantico", sans-serif;
+}
+
+.articles-form-order {
+  grid-area: order;
+}
+
+.articles-form-order-input {
+  grid-area: order-input;
+  border-radius: 5px;
+  background-color: rgb(72, 202, 228);
+  border: 2px rgb(40, 34, 37) solid;
+  width: 120px;
+  height: 30px;
+  margin: 10px;
+  font-family: "Quantico", sans-serif;
+}
+
 /* ARTICLES END */
 
 /* SINGLE ARTICLE START */
@@ -316,22 +387,23 @@
 
 /* SINGLE ARTICLE COMMENTS END */
 
-/* ACCOUNT START */
+/* USER START */
 
-.account-title {
+.user-title {
   font-size: 40px;
   color: rgb(40, 34, 37);
 }
 
-.account-container {
+.user-container {
   margin-top: 10px;
   margin-left: 20px;
   margin-right: 20px;
+  margin-bottom: 30px;
   background-color: rgb(72, 202, 228);
   border-radius: 30px;
 }
 
-.account-name {
+.user-name {
   color: rgb(40, 34, 37);
   margin: 10px;
   border-radius: 15px;
@@ -339,7 +411,7 @@
   font-weight: 1000;
 }
 
-.account-username {
+.user-username {
   color: rgb(40, 34, 37);
   margin: 10px;
   border-radius: 15px;
@@ -348,11 +420,114 @@
   font-style: italic;
 }
 
-.account-avatar {
+.user-avatar {
   border-radius: 15px;
+  width: 155px;
+  height: 155px;
 }
 
-/* ACCOUNT END */
+.user-articles {
+  border: 3px rgb(40, 34, 37) solid;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 30px;
+}
+
+.user-article-title {
+  text-decoration: none;
+  font-size: 12px;
+  color: rgb(40, 34, 37);
+  margin: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.user-article-title:hover {
+  transform: scale(1.2);
+}
+
+/* USER END */
+
+/* LOGIN START */
+
+.login-form {
+  border: 5px rgb(72, 202, 228) solid;
+  border-radius: 15px;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 10px;
+  grid-template-columns: 150px 150px;
+  grid-template-rows: 30px 30px 30px;
+  grid-template-areas:
+    "topic topic-input"
+    "category category-input"
+    "order order-input";
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form-input {
+  grid-area: topic-input;
+  border-radius: 5px;
+  background-color: rgb(72, 202, 228);
+  border: 2px black solid;
+  width: 220px;
+  height: 30px;
+  margin: 10px;
+  font-family: "Quantico", sans-serif;
+}
+
+/* LOGIN END */
+
+/* SIGNUP START */
+
+.signup-form {
+  border: 5px rgb(72, 202, 228) solid;
+  border-radius: 15px;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 10px;
+  grid-template-columns: 150px 150px;
+  grid-template-rows: 30px 30px 30px;
+  grid-template-areas:
+    "topic topic-input"
+    "category category-input"
+    "order order-input";
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-form-input {
+  grid-area: topic-input;
+  border-radius: 5px;
+  background-color: rgb(72, 202, 228);
+  border: 2px black solid;
+  width: 220px;
+  height: 30px;
+  margin: 10px;
+  font-family: "Quantico", sans-serif;
+}
+
+.signup-form-submit {
+  color: rgb(72, 202, 228);
+  grid-area: topic-input;
+  border-radius: 5px;
+  background-color: black;
+  border: 2px rgb(72, 202, 228) solid;
+  width: 100px;
+  height: 30px;
+  margin: 10px;
+  font-family: "Quantico", sans-serif;
+}
+
+.signup-form-submit:hover {
+  transform: scale(1.2);
+}
+
+/* SIGNUP END */
 
 /* VOTE BUTTON START */
 
@@ -380,6 +555,14 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
+}
+
+.negative-button:hover {
+  transform: scale(1.3);
+}
+
+.positive-button:hover {
+  transform: scale(1.3);
 }
 
 /* VOTE BUTTON END */
